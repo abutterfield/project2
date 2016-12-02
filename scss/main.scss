@@ -1,0 +1,126 @@
+// Main SCSS, there should be no CSS in this page!
+
+
+// Global Specificity
+@import 'partials/variables.scss';
+
+
+// Site Specificity
+
+
+// Page Specificity
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+body {
+	font-family: $font-family;
+	color: $color;
+	background-color: $background-color;
+	padding-left: 25px;
+	max-width: 940px;
+}
+
+header {
+	color: $heading-color;
+	float: left;
+	width: 50%;
+	h1 {
+	margin-top: 0px;
+	}
+}
+
+nav {
+	@extend body;
+	@extend header;
+	padding: 0px; 
+	ul {
+		list-style-type: none;
+		float: right;
+		
+	}
+	li {
+		display: inline-block;
+		a {
+			color: $heading-color;
+			text-decoration: none;
+			border-right: 2px solid $color;
+			padding: 0px 10px 0px 5px;
+		}
+		.no-border {
+				border-right: none;
+		}
+	}
+}
+
+footer {
+	@extend nav;
+	width: 100%;
+	padding-bottom: 0px;
+	ul {
+		text-align: center;
+		width: 100%;
+	}
+}
+
+.banner {
+	@include border-radius(0px);
+	height: 240px;
+	width: 940px;
+	max-width: 100%;
+}
+
+.image-div {
+	width: 100%;
+	margin: 15px 0px;
+}
+
+.image {
+	@include border-radius(25px);
+	float: left;
+	margin-right: 4.95%;
+}
+
+.image-no-margin {
+	@extend .image;
+	margin-right: 0px;
+}
+
+.cols {
+	border: 2px solid red;
+    -webkit-column-count: $column-count; /* Chrome, Safari, Opera */
+    -moz-column-count: $column-count; /* Firefox */
+    column-count: $column-count;
+	 h2 {
+		-webkit-column-span: $column-span; /* Chrome, Safari, Opera */
+		column-span: $column-span;
+	}
+	.padding {
+		padding: 15px;
+	}
+}
+
+.heading {
+	color: $heading-color;
+	font-weight: bold;
+	em {
+		font-weight: normal;
+	}
+}
+
+.heading1 {
+	@extend em;
+	font-weight: 50 * 2;
+}
+
+.heading2 {
+	@extend .heading1;
+	font-size: 5px + 20px;
+}
+
+.keepOpen {
+	clear: both;
+}
